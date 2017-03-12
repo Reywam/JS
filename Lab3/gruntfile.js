@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 			{
         options: 
 				{
-            assets: ['build/built.js', 'build/bootstrap.min.js']
+            assets: ['build/built.js', 'build/bootstrap.min.css']
         },
         src: ['build/index.html']
 			},			
