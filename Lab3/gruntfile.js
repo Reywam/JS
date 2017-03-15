@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 		{
 			css: 
 			{
-				src: 'css/bootstrap.min.css',
+				src: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
 				dest: 'build/bootstrap.min.css',
 			},
 			
