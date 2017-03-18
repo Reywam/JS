@@ -1,17 +1,13 @@
-// Вся конфигурация находится внутри этой функции
 module.exports = function(grunt) {
  
-  // ===========================================================================
-  // Конфигурация GRUNT ========================================================
-  // ===========================================================================
   grunt.initConfig(
   {
+		pkg: grunt.file.readJSON('package.json'),
+		
     clean: 
-		{
+		{			
 			js: ['scripts/built.js'],
-			build: ['build/**'],
-			//cleanJs: ['build/built.js'],			
-			cleanCss: ['build/bootstrap.min.css'],
+			build: ['build/**'],	
 		},
 		
     concat: 
@@ -22,8 +18,7 @@ module.exports = function(grunt) {
       },
     
       dist: 
-      {
-        //src: ['scripts/**.*js'],
+      {        
 				src: 
 				[
 					'scripts/shape.js'
@@ -54,31 +49,45 @@ module.exports = function(grunt) {
 		{
 			dev:
 			{
-				path: 'http://localhost:2000/build/index.html',
+				path: 'http://localhost:2000/index.html',
 				app: ''
 			}
 		},
 		
-		watch: 
-		{			
-			files: ['**/*'],      			
-			options: 
-			{				
-				livereload: true
+		watch:
+		{					
+			scripts: 
+			{
+					files: ['scripts/*.*'],
+					tasks: ['concat', 'eslint', 'cacheBust'],
+					options: 
+					{
+							livereload: true
+					}
+			},
+
+			html: 
+			{
+					files: ['index.html', 'cacheBust'],
+					options: 
+					{
+							livereload: true
+					}
 			}
-		},		
+    },
 		
 		cacheBust: 
 		{
-			css: 
+			task: 
 			{
-        options: 
-				{
-            assets: ['build/built.js', 'build/bootstrap.min.css']
-        },
-        src: ['build/index.html']
-			},			
-		},
+				options: 
+				{						
+					deleteOriginals: true,
+					assets: ['build/**']
+				},
+				src: ['index.html']
+			}
+    },
 		
 		copy: 
 		{
@@ -99,20 +108,21 @@ module.exports = function(grunt) {
 				src: 'index.html',
 				dest: 'build/index.html',				
 			}
-		},
+		},	
 });
  
   grunt.registerTask('default', 
-	[ 'clean:js'
+	[ 'clean'
 	, 'concat'
 	, 'eslint'
-	, 'copy'
-	, 'cacheBust'
-	//, 'clean: cleanJs'
-	//, 'clean: cleanCss'
-	, 'open'
+	, 'copy:js'
+	, 'copy:css'
+	, 'cacheBust'		
+	, 'copy:index'
+	, 'open'	
 	, 'connect'
-	, 'watch']);
+	//, 'watch'
+	]);
   
 	grunt.loadNpmTasks('grunt-contrib-copy');	
   grunt.loadNpmTasks('grunt-cache-bust');     
@@ -121,5 +131,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-connect');	
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-eslint');                                          
+  grunt.loadNpmTasks('grunt-eslint');   	
 };

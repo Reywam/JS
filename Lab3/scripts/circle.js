@@ -18,7 +18,7 @@ Circle.prototype = Object.create(Shape.prototype);
  }
  
  Circle.prototype.calculateArea = function()
-{
+{	
 	return Math.round(this.radius * this.radius * Math.PI);
 }
 

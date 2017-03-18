@@ -3,87 +3,88 @@
 	<head> 
 		<meta charset = "utf-8">
 		<title>Рисовалка</title>		
-		<link href="bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="stylesheet" href="build/bootstrap.min.ec3bb52a00e176a7.css">		
 	</head> 
 	
 	<body> 		 
 		<div id = "interface" class = "alert-block pull-left">
-			<div class = "container-fluid">
+			<div class = "container-fluid help-block">
 				<span>Shape:</span>			
 				<select id = "shapes" class = "pull-right">
-					<option id = "circle">Choose shape</option>
+					<option id = "chooseShape">Choose shape</option>
 					<option id = "circle">Circle</option>
 					<option id = "triangle">Triangle</option>
 					<option id = "rectangle">Rectangle</option>
 				</select>
 			</div>
-			<div class = "container-fluid">
+			<div class = "container-fluid help-block">
 				<span>Fill Color:</span> 
 				<input type = "text" id = "fillColor" class = "fillColor pull-right span3"></input>
 			</div>
-			<div class = "container-fluid">
+			<div class = "container-fluid help-block">
 				<span>Border Color:</span> 
 				<input type = "text" id = "borderColor" class = " pull-right span3"></input>
 			</div>			
 			<div id = "circleProperties" class = "pull-right">
-				<div class = "container-fluid">
+				<div class = "container-fluid help-block">
 					<span>CenterX:</span>
 					<input type = "text" class = "pull-right" value = "200" id = "centerX"></input>
 				</div>
-				<div class = "container-fluid">
+				<div class = "container-fluid help-block">
 					<span>CenterY:</span>
 					<input type = "text" class = "pull-right" value = "340" id = "centerY"></input>
 				</div>
-				<div class = "container-fluid">
+				<div class = "container-fluid help-block">
 					<span>Radius:</span>
 					<input type = "text" class = "pull-right" value = "20" id = "radius"></input>
 				</div>				
 			</div>
 			
 			<div id = "triangleProperties" class = "pull-right">
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>X1:</span>
 						<input type = "text" class = "container-fluid" value = "400" id = "trX1"></input>
 					</div>
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>Y1:</span>
 						<input type = "text" class = "container-fluid" value = "250" id = "trY1"></input>
 					</div>
 					
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>X2:</span>
 						<input type = "text" class = "container-fluid" value = "300" id = "trX2"></input>
 					</div>
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>Y2:</span>
 						<input type = "text" class = "container-fluid" value = "360" id = "trY2"></input>
 					</div>
 					
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>X3:</span>
 						<input type = "text" class = "container-fluid" value = "500" id = "trX3"></input>
 					</div>
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>Y3:</span>
 						<input type = "text" class = "container-fluid" value = "360" id = "trY3"></input>
 					</div>
 				</div>
 			
 				<div id = "rectangleProperties" class = "pull-right">
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>X1:</span>
 						<input type = "text" class = "container-fluid" value = "100" id = "rectX1"></input>
 					</div>
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>Y1:</span>
 						<input type = "text" class = "container-fluid" value = "100"  id = "rectY1"></input>
 					</div>
 					
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>X2:</span>
 						<input type = "text" class = "container-fluid" value = "200" id = "rectX2"></input>
 					</div>
-					<div class = "container-fluid">
+					<div class = "container-fluid help-block">
 						<span>Y2:</span>
 						<input type = "text" class = "container-fluid" value = "200" id = "rectY2"></input>
 					</div>
@@ -92,6 +93,6 @@
 				
 		<canvas height = "680" width = "900" id = "canvas" class = "canvas pull-left">Обновите браузер</canvas>		
 		
-		<script src="built.js"></script>
+		<script src="build/built.263a1396fe8f2bba.js"></script>
 	</body> 
 </html>
