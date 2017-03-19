@@ -36,14 +36,28 @@ module.exports = function(grunt) {
         target: ['scripts/built.js']
     },
 		
-		connect: 
+		// connect: 
+		// {						
+			// meta: 
+			// {
+				// port: 2000,
+				// base: ''
+			// }
+		// },  
+		
+		connect:
 		{
-			meta: 
+			server:
 			{
-				port: 2000,
-				base: ''
+				options:
+				{
+					hostname: 'localhost',
+					port: 2000,
+					base: '',
+					livereload: true
+				}
 			}
-		},  
+		},
 		
 		open:
 		{
@@ -54,27 +68,33 @@ module.exports = function(grunt) {
 			}
 		},
 		
-		watch:
-		{					
+		watch: 
+		{
+			options: 
+			{
+				livereload: true
+			},
+			
+			task:
+			{
+				files: ['index.html'],
+				//tasks: ['default'],
+				options:
+				{
+					livereload: true
+				}
+			},
+			
 			scripts: 
 			{
-					files: ['scripts/*.*'],
-					tasks: ['concat', 'eslint', 'cacheBust'],
-					options: 
-					{
-							livereload: true
-					}
-			},
-
-			html: 
-			{
-					files: ['index.html', 'cacheBust'],
-					options: 
-					{
-							livereload: true
-					}
+				files: ['scripts/*.*'],
+				tasks: ['concat', 'eslint', 'cacheBust'],
+				options: 
+				{
+					livereload: true
+				}
 			}
-    },
+		},
 		
 		cacheBust: 
 		{
@@ -119,16 +139,16 @@ module.exports = function(grunt) {
 	, 'copy:css'
 	, 'cacheBust'		
 	, 'copy:index'
-	, 'open'	
-	, 'connect'
-	//, 'watch'
-	]);
+	, 'open'		
+	, 'connect'	
+	, 'watch'	
+	]);	
   
 	grunt.loadNpmTasks('grunt-contrib-copy');	
   grunt.loadNpmTasks('grunt-cache-bust');     
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-open');	
-	grunt.loadNpmTasks('grunt-connect');	
+	grunt.loadNpmTasks('grunt-contrib-connect');		
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-eslint');   	
