@@ -131,6 +131,12 @@ module.exports = function(grunt) {
 				dest: 'js/',
 			},
 			
+			main:
+			{
+				src: 'ts/main.js',
+				dest: 'build/main.js',
+			},
+			
 			index:
 			{
 				src: 'index.html',
@@ -142,7 +148,7 @@ module.exports = function(grunt) {
 		{
 			options: 
 			{
-					stderr: true
+				stderr: true
 			},
 			target: 
 			{
@@ -159,6 +165,7 @@ module.exports = function(grunt) {
 	, 'shell'	
 	, 'copy:js'
 	, 'copy:css'
+	, 'copy:main'
 	, 'cacheBust'
 	, 'copy:index'
 	,	'open'
