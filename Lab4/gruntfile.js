@@ -23,8 +23,7 @@ module.exports = function(grunt) {
 					, 'ts/CRectangle.ts'
 					, 'ts/main.ts'
 				],				
-				configFile: 'tsconfig.json',				
-				out: 'build/scripts.js',
+				configFile: 'tsconfig.json',								
 				
 				options: 
 				{
