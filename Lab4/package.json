@@ -1,7 +1,7 @@
 {
-  "name": "lab3",
+  "name": "lab4",
   "version": "1.0.0",
-  "description": "Third lab",
+  "description": "Fourth lab",
   "main": "index.js",
   "scripts": {
     "start": "grunt"
