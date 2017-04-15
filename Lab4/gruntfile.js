@@ -69,6 +69,7 @@ module.exports = function(grunt) {
 			task:
 			{
 				files: ['index.html'],				
+				tasks: ['shell'],
 				options:
 				{
 					livereload: true
@@ -78,6 +79,7 @@ module.exports = function(grunt) {
 			app:
 			{
 				files: ['js/app.js'],
+				tasks: ['shell'],
 				options:
 				{
 					livereload: true
@@ -87,6 +89,7 @@ module.exports = function(grunt) {
 			scripts:
 			{
 				files: ['ts/*.*'],
+				tasks: ['default'],					
 				options:
 				{
 					livereload: true
@@ -98,8 +101,8 @@ module.exports = function(grunt) {
 		{
 			options:
 			{
-					configFile: 'tslint.json',
-					quiet: false
+				configFile: 'tslint.json',
+				quiet: false
 			},
 			target: 'ts/*.ts'
 		},
@@ -148,21 +151,28 @@ module.exports = function(grunt) {
 		{
 			options: 
 			{
-				stderr: true
+				stderr: true,
+				failOnError: true
 			},
-			target: 
+			
+			html:
+			{
+				command: 'cspell index.html'
+			},
+			
+			ts: 
 			{
 				command: 'cspell ts/*.*'
-			}
+			},						
 		},		
 });
  
   grunt.registerTask('default', 
 	[ 
 		'clean'	
+	,	'shell'			
 	, 'tslint'			
-	, 'ts'		
-	, 'shell'	
+	, 'ts'	
 	, 'copy:js'
 	, 'copy:css'
 	, 'copy:main'
@@ -182,5 +192,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-open');	
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-tslint');			
-	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-shell');	
 };
